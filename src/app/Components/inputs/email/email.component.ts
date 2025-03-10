@@ -1,14 +1,20 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-email',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [],
   templateUrl: './email.component.html',
   styleUrl: './email.component.css'
 })
 export class EmailComponent {
-  email = '';
+  @Output() valueChange = new EventEmitter<string>();
+
+  @Input() value: string = '';
+
+  onInputChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.value = input.value;
+    this.valueChange.emit(this.value);
+  }
 }

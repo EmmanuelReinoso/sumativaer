@@ -8,9 +8,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./boton-primario.component.css'] 
 })
 export class BotonPrimarioComponent {
-  @Output() clickEvent = new EventEmitter<void>();
+  @Output() clicked = new EventEmitter<void>();
 
-  onClick() {
-    this.clickEvent.emit();
+  handleClick() {
+    this.clicked.emit();
   }
 }

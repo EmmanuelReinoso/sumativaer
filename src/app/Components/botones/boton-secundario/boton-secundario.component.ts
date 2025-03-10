@@ -7,9 +7,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./boton-secundario.component.css'] 
 })
 export class BotonSecundarioComponent {
-  @Output() clickEvent = new EventEmitter<void>();
+  @Output() clicked = new EventEmitter<void>();
 
-  onClick() {
-    this.clickEvent.emit();
+  handleClick() {
+    this.clicked.emit();
   }
 }

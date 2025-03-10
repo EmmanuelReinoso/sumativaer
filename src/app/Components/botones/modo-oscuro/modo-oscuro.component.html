@@ -1,4 +1,5 @@
-<button class="os">
-    {{ isDarkMode ? 'Modo Claro' : 'Modo Oscuro' }}
-</button>
-  
+<div class="toggle-container" [class.dark-mode]="isDarkMode" (click)="toggleDarkMode()">
+    <div class="toggle-circle"></div>
+    <div class="icon sun" *ngIf="!isDarkMode">🌕</div>
+    <div class="icon moon" *ngIf="isDarkMode">🌙</div>
+  </div>

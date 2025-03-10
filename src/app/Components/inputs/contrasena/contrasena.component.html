@@ -1,6 +1,12 @@
+<div class="contai">
+    <label for="password">Contraseña</label>
+</div>
 <input 
-  type="password" 
-  [(ngModel)]="password" 
-  placeholder="Contraseña"
-  required 
-  minlength="8">
+    type="password"
+    [value]="value"
+    (input)="onInputChange($event)"
+    id="password"
+    required 
+    minlength="6"
+    class="input"
+    placeholder="Ingresa tu contraseña">

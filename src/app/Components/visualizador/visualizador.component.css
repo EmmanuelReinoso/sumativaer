@@ -9,11 +9,6 @@ body {
   height: 100vh;
 }
 
-body.dark-mode {
-  background-color: #000; /* Color de fondo para modo oscuro */
-  color: #fff; /* Color de texto para modo oscuro */
-}
-
 /* Contenedores */
 .container {
   display: flex;

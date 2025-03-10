@@ -7,10 +7,10 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./boton-aceptar.component.css']
 })
 export class BotonAceptarComponent {
-  @Output() clickEvent = new EventEmitter<void>();
+  @Output() clicked = new EventEmitter<void>();
 
-  onClick() {
-    this.clickEvent.emit();
+  handleClick() {
+    this.clicked.emit(); // Emite el evento para que el componente padre lo maneje
   }
 }
 

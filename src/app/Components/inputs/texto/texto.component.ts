@@ -1,14 +1,18 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-texto',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [],
   templateUrl: './texto.component.html',
   styleUrl: './texto.component.css'
 })
 export class TextoComponent {
-  texto = ''; 
+  @Output() valueChange = new EventEmitter<string>();
+  @Input() value: string = '';
+
+  onInputChange(event: Event) {
+    this.value = (event.target as HTMLInputElement).value;
+    this.valueChange.emit(this.value);
+  }
 }

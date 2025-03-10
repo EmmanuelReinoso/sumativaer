@@ -1,6 +1,9 @@
-<input 
-  type="email" 
-  [(ngModel)]="email" 
-  placeholder="Email"
-  required 
-  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+<div class="contai">
+  <label for="password">Email</label>
+</div>
+<input
+  type="email"
+  [value]="value"
+  (input)="onInputChange($event)"
+  placeholder="Ingresa tu correo"
+/>

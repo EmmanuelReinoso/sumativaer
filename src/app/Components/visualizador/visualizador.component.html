@@ -1,36 +1,37 @@
-<div class="container">
+     <div class="container">
      <div class="barra">
           <h1>Sumativa</h1>
           <hr>
      </div>
      <div>
      <div class="PrimerosBotones">
-     <app-boton-primario class="boton-primario" (clickEvent)="onButtonClick('Primario')"></app-boton-primario>
-     <app-boton-secundario class="boton-secundario" (clickEvent)="onButtonClick('Secundario')"></app-boton-secundario>
+     <app-boton-primario class="boton-primario" (clicked)="incrementClickCount()"></app-boton-primario>
+     <app-boton-secundario class="boton-secundario" (clicked)="showTime()"></app-boton-secundario>
      </div>
      <div class="SegundosBotones">
-     <app-boton-aceptar class="boton-aceptar" (clickEvent)="onButtonClick('Aceptar')"></app-boton-aceptar>
-     <app-boton-cancelar class="boton-cancelar" (clickEvent)="onButtonClick('Cancelar')"></app-boton-cancelar>
+     <app-boton-aceptar class="boton-aceptar" (clicked)="validateEmail()"></app-boton-aceptar>
+     <app-boton-cancelar class="boton-cancelar" (clicked)="clearInputs()"></app-boton-cancelar>
      </div>
      <div class="BotonOscuro">
-     <app-modo-oscuro class="modo-oscuro" (click)="cambiarModo()"></app-modo-oscuro>
+     <app-modo-oscuro class="modo-oscuro" (darkModeToggle)="onDarkModeToggle($event)"></app-modo-oscuro>
      </div>
      <div class="derecho">
-     <p class="c">Correo</p>
-     <app-contrasena [(ngModel)]="password" class="input"></app-contrasena>
-     <p class="e">Email</p>
-     <app-email [(ngModel)]="email" class="input"></app-email>
-     <p class="t">Texto</p>
-     <app-texto [(ngModel)]="texto" class="input"></app-texto>
+     <app-contrasena [(value)]="passwordValue" (passwordStatus)="updatePasswordStatus($event)" class="input"></app-contrasena>
+     <div *ngIf="passwordMessage" class="password-status">
+          {{ passwordMessage }}
+     </div>
+     <app-email [(value)]="emailValue" class="input"></app-email>
+     <app-texto [(value)]="textValue" class="input"></app-texto>
      </div>
      </div>
      <div class="datos">
      <div class="visualizacion-container">
-     <p class="parrafo">Email: {{ email }}</p>
-     <p class="parrafo">Contraseña: {{ password }}</p>
-     <p class="parrafo">Texto: {{ texto }}</p>
+          <p><strong>Correo:</strong> {{ emailValue }}</p>
+          <p><strong>Contraseña:</strong> {{ passwordValue }}</p>
+          <p><strong>Texto:</strong> {{ textValue }}</p>
+          <p><strong>Clicks:</strong> {{ clickCount }}</p>
+          <p><strong>Hora de clic:</strong> {{ currentTime}}</p>  
      <div class="cuadrado" [ngClass]="{ 'animado': isAnimated }"></div>
      </div>
      </div>
 </div>
-<div *ngIf="mostrarMensaje">Profe exonereme si o q? </div> 
